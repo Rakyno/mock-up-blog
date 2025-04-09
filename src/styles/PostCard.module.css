@@ -1,0 +1,16 @@
+.card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    background-color: #B2BEB5	;
+    transition: transform 0.2s ease;
+  }
+
+  
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
