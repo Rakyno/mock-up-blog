@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Router from './router'; // Make sure this is correctly imported
-import './index.css'; // or App.css, whichever you use
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Router from "./router";
+import "./index.css";
+//asked AI about <Router />
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router />
+    <Router /> 
   </React.StrictMode>
 );
