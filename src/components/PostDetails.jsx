@@ -1,22 +1,23 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
+
 import styles from "../styles/PostDetails.module.css";
 
 function PostDetails() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  //const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then((res) => res.json())
-      .then((data) => setPost(data));
-    setIsLoading(false);
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then((response) => {
+        setPost(response.data);
+      });
   }, [id]);
 
-  if (isLoading) {
-    return <div className={styles.loading}>Loading posts...</div>;
-  }
+  if (!post) return <div>Loading...</div>;
 
   return (
     <div className={styles.details}>

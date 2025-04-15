@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import styles from "../styles/PostList.module.css";
+import axios from "axios";
 
 function PostList() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true); //AI
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        setPosts(data.slice(0, 12));
-        setIsLoading(false); //AI
-      });
+    axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
+      setPosts(response.data.slice(0, 12));
+      setIsLoading(false); //AI
+    });
   }, []);
 
   if (isLoading) {
